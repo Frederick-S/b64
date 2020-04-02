@@ -2,7 +2,9 @@ package main
 
 import (
 	"encoding/base64"
+	"flag"
 	"fmt"
+	"log"
 	"os"
 )
 
@@ -15,7 +17,18 @@ func main() {
 		os.Exit(1)
 	}
 
-	text := arguments[0]
+	decode := flag.Bool("d", false, "decode")
+	flag.Parse()
 
-	fmt.Print(base64.StdEncoding.EncodeToString([]byte(text)))
+	if *decode {
+		decoded, err := base64.StdEncoding.DecodeString(arguments[1])
+
+		if err != nil {
+			log.Fatal("Decode error")
+		} else {
+			fmt.Print(string(decoded))
+		}
+	} else {
+		fmt.Print(base64.StdEncoding.EncodeToString([]byte(arguments[0])))
+	}
 }
