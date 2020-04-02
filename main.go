@@ -12,7 +12,7 @@ func main() {
 	arguments := os.Args[1:]
 
 	if len(arguments) == 0 {
-		fmt.Println("Usage: base64 text-to-decode")
+		fmt.Println("Usage: b64 text-to-encode or b64 -d text-to-decode")
 
 		os.Exit(1)
 	}
