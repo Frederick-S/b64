@@ -19,6 +19,10 @@ func main() {
 	flag.Parse()
 
 	if *decode {
+		if len(arguments) == 1 {
+			log.Fatal("Missing text to decode")
+		}
+
 		decoded, err := base64.StdEncoding.DecodeString(arguments[1])
 
 		if err != nil {
