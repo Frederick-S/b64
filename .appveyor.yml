@@ -1,0 +1,7 @@
+build: off
+environment:
+  GOPATH: c:\gopath
+stack:
+  - go 1.x
+test_script:
+  - go build
