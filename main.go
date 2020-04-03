@@ -12,9 +12,7 @@ func main() {
 	arguments := os.Args[1:]
 
 	if len(arguments) == 0 {
-		fmt.Println("Usage: b64 text-to-encode or b64 -d text-to-decode")
-
-		os.Exit(1)
+		log.Fatal("Usage: b64 text-to-encode or b64 -d text-to-decode")
 	}
 
 	decode := flag.Bool("d", false, "decode")
